@@ -2,6 +2,7 @@
 
 using namespace std;
 
+float Suma(float num1, float num2);
 void DivisorDeTexto();
 
 struct Comida
@@ -37,6 +38,11 @@ int main()
     cout << producto1.precio << endl; 
     
     return 0;
+}
+
+float Suma(float num1, float num2)
+{
+    return num1 + num2;
 }
 
 void DivisorDeTexto()
