@@ -43,6 +43,8 @@ int main()
 float Suma(float num1, float num2)
 {
     return num1 + num2;
+}
+
 void DivisorDeTexto()
 {
     cout << endl;
