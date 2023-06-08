@@ -86,5 +86,17 @@ float YIntersectCalculation(int measures, float slope, float x[], float y[])
     
     yIntersect = (sumY - (sumX * slope))/measures;
 
+    cout << "ehe";
     return yIntersect;
+
+    
 }
+
+
+
+
+
+
+
+
+
