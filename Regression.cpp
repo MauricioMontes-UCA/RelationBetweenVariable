@@ -2,7 +2,6 @@
 
 using namespace std;
 
-//Para la ecuación de tipo y = mx + b, necesito calcular m (la pendiente) y b (el intersecto con y)
 float SlopeCalculation(int measures, float x[], float y[]);
 float YIntersectCalculation(int measures, float slope, float x[], float y[]);
 
