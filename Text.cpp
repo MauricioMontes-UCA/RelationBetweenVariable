@@ -2,14 +2,15 @@
 #include <iomanip>
 #include <cmath>
 
+using namespace std;
+
 void LimpiarPantalla();
 
 int main(){
-    
     for (int i = 0; i < 20; i++){
-        cout << i;
+        cout << i << endl;
     }
-
+    LimpiarPantalla();
     return 0;
 }
 
