@@ -2,8 +2,8 @@
 
 using namespace std;
 
-double SlopeCalculation(int measures, double x[], double y[]);
-double YIntersectCalculation(int measures, float slope, double x[], double y[]);
+float SlopeCalculation(int measures, float x[], float y[]);
+float YIntersectCalculation(int measures, float slope, float x[], float y[]);
 
 int main()
 {
@@ -12,8 +12,8 @@ int main()
     cout << "Ingrese la cantidad de medidas que se han realizado: ";
     cin >> medidas;
 
-    double vDependiente[medidas];
-    double vIndependiente[medidas];
+    float vDependiente[medidas];
+    float vIndependiente[medidas];
 
     cout << "Ingrese las medidas de la variable independiente de manera ordenada:\n";
     
@@ -40,9 +40,9 @@ int main()
     return 0;
 }
 
-double SlopeCalculation(int measures, double x[], double y[])
+float SlopeCalculation(int measures, float x[], float y[])
 {
-    double sumX, sumY, sumXY, sumXCuadrado, slope = 0;
+    float sumX, sumY, sumXY, sumXCuadrado, slope = 0;
     
     for (int i = 0; i < measures; i++)
     {
@@ -69,9 +69,9 @@ double SlopeCalculation(int measures, double x[], double y[])
     return slope;
 }
 
-double YIntersectCalculation(int measures, double slope, double x[], double y[])
+float YIntersectCalculation(int measures, float slope, float x[], float y[])
 {
-    double yIntersect, sumY, sumX = 0;
+    float yIntersect, sumY, sumX = 0;
     
     for (int i = 0; i < measures; i++)
     {
