@@ -71,7 +71,7 @@ int main(){
             ((n * sumaCuadradoIndependiente) - (sumaIndependiete * sumaIndependiete)) *
             ((n * sumaCuadradoDependiente) - (sumaDependiente * sumaDependiente))
         )
-    )
+    );
     //Esta cosa de aquí arriba es horrible, pero hace lo que se supone debe de hacer. Además, es la única razón
     //por la que se ha importado "cmath"
 
