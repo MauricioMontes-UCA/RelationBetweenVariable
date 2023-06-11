@@ -58,3 +58,12 @@ double InterpectoY(int n, double x[], double y[]){
         ((n * sumaCuadradoIndependiente) - (sumaIndependiete * sumaIndependiete))
     );
 }
+
+
+
+
+
+
+
+
+
