@@ -1,4 +1,4 @@
-#RelationBetweenVariable
+# RelationBetweenVariable
 Tal parece que ahora este repositorio tendrá como propósito automatizar el proceso de obtener la ecuación que relaciona las variables, además de trabajar con regresión lineal
 y exponencial natural.
 
