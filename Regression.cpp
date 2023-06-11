@@ -1,89 +1,60 @@
-#include <iostream>
+#include "Sumatorias.cpp"
+#include <iomanip>
 
-using namespace std;
+double Pendiente(int n, double x[], double y[]);
+double InterpectoY(int n, double x[], double y[]);
 
-float SlopeCalculation(int measures, float x[], float y[]);
-float YIntersectCalculation(int measures, float slope, float x[], float y[]);
+int main(){
+    int medidas;
+    double m, b = 0;
 
-int main()
-{
-    int medidas, pendiente, intersectoY = 0;
-
-    cout << "Ingrese la cantidad de medidas que se han realizado: ";
+    cout << "Ingrese la cantidad de medidas realizadas: ";
     cin >> medidas;
 
-    float vDependiente[medidas];
-    float vIndependiente[medidas];
+    double vIndependiente[medidas], vDependiente[medidas];
 
-    cout << "Ingrese las medidas de la variable independiente de manera ordenada:\n";
-    
-    for (int i = 0; i < medidas; i++)
-    {
+    cout << "Ingrese uno a uno las mediciones de la variable independiente, de manera ordenada:\n";
+    for (int i = 0; i < medidas; i++){
         cout << i+1 << ". ";
         cin >> vIndependiente[i];
     }
 
-    cout << "\nIngrese las medidas de la variable dependiente correspondiente a la de la variable independiente:\n";
-
-    for (int i = 0; i < medidas; i++)
-    {
+    cout << "Ahora, ingrese las mediciones de la variable dependiente de acuerdo de manera ordenada:\n";
+    for (int i = 0; i < medidas; i++){
         cout << i+1 << ". " << vIndependiente[i] << " ";
         cin >> vDependiente[i];
     }
+    m = Pendiente(medidas, vIndependiente, vDependiente);
+    b = InterpectoY(medidas, vIndependiente, vDependiente);
 
-    pendiente = SlopeCalculation(medidas, vIndependiente, vDependiente);
-    intersectoY = YIntersectCalculation(medidas, pendiente, vIndependiente, vDependiente);
-
-    cout << "\nLa ecuación lineal que relaciona las dos variables es la siguiente: ";
-    cout << "y = " << pendiente << "x + " << intersectoY << endl;
-
+    cout << "La pendiente de la ecuación es: " << fixed << setprecision(4) << m << endl;
+    cout << "El intercepto-Y de la ecuación es: " << fixed << setprecision(4) << b << endl;
+    cout << "\nLa ecuación lineal que relaciona las dos variables es: y = ";
+    cout << fixed << setprecision(4) << m << "x + " << b << endl;
+    
     return 0;
 }
 
-float SlopeCalculation(int measures, float x[], float y[])
-{
-    float sumX, sumY, sumXY, sumXCuadrado, slope = 0;
+double Pendiente(int n, double x[], double y[]){
+    double sumaIndependiete = SumatoriaX(n, x);
+    double sumaDependiente = SumatoriaY(n, y);
+    double sumaCuadradoIndependiente = SumatoriaXX(n, x);
+    double sumaProducto = SumatoriaXY(n, x, y);
     
-    for (int i = 0; i < measures; i++)
-    {
-        sumX += x[i];
-    }
-    
-    for (int i = 0; i < measures; i++)
-    {
-        sumY += y[i];
-    }
-    
-    for (int i = 0; i < measures; i++)
-    {
-        sumXY += (x[i] * y[i]);
-    }
-
-    for (int i = 0; i < measures; i++)
-    {
-        sumXCuadrado += (x[i] * x[i]);
-    }
-
-    slope = (((measures * sumXY) - (sumX * sumY)) / ((measures * sumXCuadrado) - (sumX * sumX)));
-
-    return slope;
+    return (
+        ((n * sumaProducto) - (sumaIndependiete * sumaDependiente)) /
+        ((n * sumaCuadradoIndependiente) - (sumaIndependiete * sumaIndependiete))
+        );
 }
 
-float YIntersectCalculation(int measures, float slope, float x[], float y[])
-{
-    float yIntersect, sumY, sumX = 0;
+double InterpectoY(int n, double x[], double y[]){
+    double sumaIndependiete = SumatoriaX(n, x);
+    double sumaDependiente = SumatoriaY(n, y);
+    double sumaCuadradoIndependiente = SumatoriaXX(n, x);
+    double sumaProducto = SumatoriaXY(n, x, y);
     
-    for (int i = 0; i < measures; i++)
-    {
-        sumX += x[i];
-    }
-    
-    for (int i = 0; i < measures; i++)
-    {
-        sumY += y[i];
-    }
-    
-    yIntersect = (sumY - (sumX * slope))/measures;
-
-    return yIntersect;
+    return (
+        ((sumaDependiente * sumaCuadradoIndependiente) - (sumaIndependiete * sumaProducto)) /
+        ((n * sumaCuadradoIndependiente) - (sumaIndependiete * sumaIndependiete))
+    );
 }
