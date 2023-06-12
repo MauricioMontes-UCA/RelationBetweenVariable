@@ -1,5 +1,7 @@
-#include "Sumatorias.cpp"
+#include "Sumatorias.hpp"
 #include <iomanip>
+
+using namespace std;
 
 double Pendiente(int n, double x[], double y[]);
 double InterpectoY(int n, double x[], double y[]);
