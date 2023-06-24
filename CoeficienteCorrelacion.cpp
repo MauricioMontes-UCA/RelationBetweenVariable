@@ -1,4 +1,4 @@
-#include "Sumatorias.hpp"
+#include "sumatorias.hpp"
 #include <iomanip>
 #include <cmath>
 
@@ -44,8 +44,26 @@ int main(){
     
     LimpiarPantalla();
 
+    cout<<setfill('.')
+        << "|"
+        << setw(5) << left << "N"
+        << "|"
+        << setw(5) << left << "X"
+        << "|"
+        << setw(5) << left << "Y"
+        << "|"
+        << endl;
+    
     for (int i = 0; i < n; i++){
-        cout << i+1 << ". " << vIndependiente[i] << " " << vDependiente[i] << endl;
+        cout<<setfill(' ')
+            << "|"
+            << setw(5) << left << i+1
+            << "|"
+            << setw(5) << left << vIndependiente[i]
+            << "|"
+            << setw(5) << left << vDependiente[i]
+            << "|"
+            << endl;
     }
     //Imprime la "tabla" nuevamente, y luego debería lanzar el valor correcto del coeficiente de covarianza
 
