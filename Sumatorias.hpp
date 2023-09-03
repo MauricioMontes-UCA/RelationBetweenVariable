@@ -1,37 +1,36 @@
 #include <iostream>
 
-void SumatoriaX(int n, double x[], double &sumX); //Para la sumatoria de la variable independiente
-void SumatoriaXX(int n, double x[], double &sumXX); //Para la sumatoria de la variable dependiente
-void SumatoriaY(int n, double y[], double &sumY); //Para la sumatoria de los cuadrados de la V.I
-void SumatoriaYY(int n, double y[], double &sumYY); //Para la sumatoria de los cuadrados de la V.D
-void SumatoriaXY(int n, double x[], double y[], double &sumXY); //Para la sumatoria del producto entre los pares ordendados
+struct Medidas{
+    double x;
+    double y;
+};
 
-void SumatoriaX(int n, double x[], double &sumX){
+void SumatoriaX(int n, Medidas x[], double &sumX){
     for (int i = 0; i < n; i++){
-        sumX += x[i];
+        sumX += x[i].x;
     }
 }
 
-void SumatoriaXX(int n, double x[], double &sumXX){
+void SumatoriaXX(int n, Medidas x[], double &sumXX){
     for (int i = 0; i < n; i++){
-        sumXX += (x[i] * x[i]);
+        sumXX += (x[i].x * x[i].x);
     }
 }
 
-void SumatoriaY(int n, double y[], double &sumY){
+void SumatoriaY(int n, Medidas y[], double &sumY){
     for (int i = 0; i < n; i++){
-        sumY += y[i];
+        sumY += y[i].y;
     }
 }
 
-void SumatoriaYY(int n, double y[], double &sumYY){
+void SumatoriaYY(int n, Medidas y[], double &sumYY){
     for (int i = 0; i < n; i++){
-        sumYY += (y[i] * y[i]);
+        sumYY += (y[i].y * y[i].y);
     }
 }
 
-void SumatoriaXY(int n, double x[], double y[], double &sumXY){
+void SumatoriaXY(int n, Medidas xy[], double &sumXY){
     for (int i = 0; i < n; i++){
-        sumXY += (x[i] * y[i]);
+        sumXY += (xy[i].x * xy[i].y);
     }
 }

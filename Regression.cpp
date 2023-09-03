@@ -1,71 +1,29 @@
-#include "Sumatorias.hpp"
+#include "LinealRegression.hpp"
 #include <iomanip>
 
-using namespace std;
-
-double Pendiente(int n, double x[], double y[]);
-double InterpectoY(int n, double x[], double y[]);
-
 int main(){
-    int medidas;
-    double m, b = 0;
+    int size;
+    double a, b = 0;
 
-    cout << "Ingrese la cantidad de medidas realizadas: ";
-    cin >> medidas;
+    std::cout << "Ingrese la cantidad de medidas realizadas: ";
+    std::cin >> size;
 
-    double vIndependiente[medidas], vDependiente[medidas];
+    struct Medidas *measures;
+    measures = new Medidas[size];
 
-    cout << "Ingrese uno a uno las mediciones de la variable independiente, de manera ordenada:\n";
-    for (int i = 0; i < medidas; i++){
-        cout << i+1 << ". ";
-        cin >> vIndependiente[i];
+    std::cout << "Ingrese uno a uno las mediciones, separando las mediciones de X y Y con un espacio\n";
+    for (int i = 0; i < 5; i++){
+        std::cin >> measures[i].x >> measures[i].y;
     }
 
-    cout << "Ahora, ingrese las mediciones de la variable dependiente de acuerdo de manera ordenada:\n";
-    for (int i = 0; i < medidas; i++){
-        cout << i+1 << ". " << vIndependiente[i] << " ";
-        cin >> vDependiente[i];
-    }
-    m = Pendiente(medidas, vIndependiente, vDependiente);
-    b = InterpectoY(medidas, vIndependiente, vDependiente);
+    LinealRegression(size, measures, a, b);
 
-    cout << "La pendiente de la ecuación es: " << fixed << setprecision(4) << m << endl;
-    cout << "El intercepto-Y de la ecuación es: " << fixed << setprecision(4) << b << endl;
-    cout << "\nLa ecuación lineal que relaciona las dos variables es: y = ";
-    cout << fixed << setprecision(4) << m << "x + " << b << endl;
+    delete[] measures;
+
+    std::cout << "La pendiente de la ecuación es: " << fixed << setprecision(4) << m << std::endl;
+    std::cout << "El intercepto-Y de la ecuación es: " << fixed << setprecision(4) << b << std::endl;
+    std::cout << "\nLa ecuación lineal que relaciona las dos variables es: y = ";
+    std::cout << fixed << setprecision(4) << m << "x + " << b << std::endl;
     
     return 0;
 }
-
-double Pendiente(int n, double x[], double y[]){
-    double sumaIndependiete = SumatoriaX(n, x);
-    double sumaDependiente = SumatoriaY(n, y);
-    double sumaCuadradoIndependiente = SumatoriaXX(n, x);
-    double sumaProducto = SumatoriaXY(n, x, y);
-    
-    return (
-        ((n * sumaProducto) - (sumaIndependiete * sumaDependiente)) /
-        ((n * sumaCuadradoIndependiente) - (sumaIndependiete * sumaIndependiete))
-        );
-}
-
-double InterpectoY(int n, double x[], double y[]){
-    double sumaIndependiete = SumatoriaX(n, x);
-    double sumaDependiente = SumatoriaY(n, y);
-    double sumaCuadradoIndependiente = SumatoriaXX(n, x);
-    double sumaProducto = SumatoriaXY(n, x, y);
-    
-    return (
-        ((sumaDependiente * sumaCuadradoIndependiente) - (sumaIndependiete * sumaProducto)) /
-        ((n * sumaCuadradoIndependiente) - (sumaIndependiete * sumaIndependiete))
-    );
-}
-
-
-
-
-
-
-
-
-
