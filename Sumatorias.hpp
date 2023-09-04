@@ -1,36 +1,43 @@
 #include <iostream>
 
+//Todas las medidas se conforman por un punto coordenada entre la variable independiente y la variable dependiente. Por ello, se crea un estructura
+//con la cual se definirá un arreglo que contendrá todas las medidas para evaluarlas.
 struct Medidas{
     double x;
     double y;
 };
 
-void SumatoriaX(int n, Medidas x[], double &sumX){
+//Sumatoria de la variable independiente
+void SumatoriaX(int n, Medidas m[], double &sumX){
     for (int i = 0; i < n; i++){
-        sumX += x[i].x;
+        sumX = sumX + (m[i].x);
     }
 }
 
-void SumatoriaXX(int n, Medidas x[], double &sumXX){
+//Sumatoria del cuadrado de la variable independiente
+void SumatoriaXX(int n, Medidas m[], double &sumXX){
     for (int i = 0; i < n; i++){
-        sumXX += (x[i].x * x[i].x);
+        sumXX = sumXX + ((m[i].x) * (m[i].x));
     }
 }
 
-void SumatoriaY(int n, Medidas y[], double &sumY){
+//Sumatoria de la variable dependiente
+void SumatoriaY(int n, Medidas m[], double &sumY){
     for (int i = 0; i < n; i++){
-        sumY += y[i].y;
+        sumY = sumY + (m[i].y);
     }
 }
 
-void SumatoriaYY(int n, Medidas y[], double &sumYY){
+//Sumatoria del cuadrado de la variable dependiente
+void SumatoriaYY(int n, Medidas m[], double &sumYY){
     for (int i = 0; i < n; i++){
-        sumYY += (y[i].y * y[i].y);
+        sumYY = sumYY + ((m[i].y) * (m[i].y));
     }
 }
 
-void SumatoriaXY(int n, Medidas xy[], double &sumXY){
+//Sumatoria del producto entre la variable dependiente e independiente
+void SumatoriaXY(int n, Medidas m[], double &sumXY){
     for (int i = 0; i < n; i++){
-        sumXY += (xy[i].x * xy[i].y);
+        sumXY = sumXY + ((m[i].x) * (m[i].y));
     }
 }
