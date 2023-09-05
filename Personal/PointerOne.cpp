@@ -16,14 +16,12 @@ void UpdatePhoto(bool &photoStatus);
 
 int main()
 {
-    // Basically, this thing allows me to add today's date as a string
     auto t = std::time(nullptr);
     auto tm = *std::localtime(&t);
 
     std::ostringstream oss;
     oss << std::put_time(&tm, "%d-%m-%Y");
 
-    // The actual program starts here
     int size = 0;
     int option, n = 0;
     bool iterator = true;
