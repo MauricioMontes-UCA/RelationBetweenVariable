@@ -45,10 +45,12 @@ int main()
             break;
         case 2:
             condition++;
+            delete[] registers;
             break;
 
         default:
             condition++;
+            delete[] registers;
             break;
         }
     }

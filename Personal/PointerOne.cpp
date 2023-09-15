@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <ctime>
 
+//here is this dumbass struct
 struct Birds
 {
     std::string name;
@@ -10,24 +11,26 @@ struct Birds
     bool photoTaken = false;
 };
 
-void ChangeName(std::string &birdName);
+void ChangeName(std::string &birdName); //solo usa un parametro, pero... no se, cool
 void ChangeColour(std::string &birdColour);
 void UpdatePhoto(bool &photoStatus);
 
 int main()
 {
+    //============================================================[wea inutil]================================
     auto t = std::time(nullptr);
     auto tm = *std::localtime(&t);
 
     std::ostringstream oss;
     oss << std::put_time(&tm, "%d-%m-%Y");
+    //========================================================================================================
 
-    int size = 0;
-    int option, n = 0;
+    int size, option, n = 0;
     bool iterator = true;
 
     std::cout << "How many birds do you want to add?\n";
     std::cin >> size;
+    //aja, lo de siempre, pedir el tamano antes de definir el arreglo dinamico
 
     // Created dynamic array
     struct Birds *catalogue = new struct Birds[size];
@@ -40,10 +43,11 @@ int main()
         std::cin >> (catalogue + i)->name;
         std::cout << "Enter the bird's colour: ";
         std::cin >> (catalogue + i)->colour;
-        (catalogue + i)->registrationDate = oss.str(); // where I add the date
+        (catalogue + i)->registrationDate = oss.str(); // la unica utilidad de la wea inutil
     }
 
-    while (iterator)
+    //welcome to the menu
+    while(iterator)
     {
         std::cout << "\n1. Change a bird's name.\n2. Change a bird's colour.\n3. Update a bird's photo status.\n4. Exit menu.\n";
         std::cin >> option;

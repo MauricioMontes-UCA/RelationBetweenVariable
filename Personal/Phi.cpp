@@ -4,13 +4,21 @@
 
 using namespace std;
 
+struct Students{
+    string name;
+    int age;
+    float grades;
+};
+
 double Phi();
 
 int main(){
-    
-    cout << fixed << setprecision(15) << Phi() << endl;
-    cout << ((Phi() * Phi()) - Phi() - 1) << endl;
-    cout << ((Phi() * Phi())-(1/Phi())) << endl;
+    struct Students *ptr = new Students[5];
+    //cout << fixed << setprecision(15) << Phi() << endl;
+    //cout << ((Phi() * Phi()) - Phi() - 1) << endl;
+    //cout << ((Phi() * Phi())-(1/Phi())) << endl;
+
+    cout << sizeof(*ptr);
 
     return 0;
 }
